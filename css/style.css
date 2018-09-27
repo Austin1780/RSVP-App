@@ -7,44 +7,55 @@
 }
 body {
   font-family: 'Lato', sans-serif;
-  color: #4c4c4c;
-  background: #f8fdf3;
+  color: black;
+  background: #2caeff;
 }
 h1,
+h2,
 p,
 form button {
   color: white;  
 }
-h1 {
+h1, h2 {
   font-family: 'Courgette', cursive;
-  text-shadow: 0 1px 0 rgba(0,0,0, .4);
-  line-height: .65;
-  margin-top: .5em;
-  margin-bottom: 0;
+  text-shadow:
+		-1px -1px 0 #000,
+		1px -1px 0 #000,
+		-1px 1px 0 #000,
+		1px 1px 0 #000;
+}
+h1 {
+  font-size: 30px;
 }
 h2 {
-  margin-top: 0;
+  font-size: 20px;
+}
+h3 {
+  font-size: 20px;
 }
 p {
-  font-size: 1.1em;
-  text-shadow: 0 1px 0 rgba(0,0,0, .25);
+  font-size: 16px;
+  text-shadow: 2px 2px 4px #000000;
 }
 form {
   width: 60%;
-  background: white;
   display: inline-block;
+  background: white;
   overflow: hidden;
   display: -webkit-flex;
   display: flex;
   border-radius: .2em;
   border: solid 4px white;
-  box-shadow: 0 1px 14px rgba(0,0,0, .12);
+  box-shadow: 2px 2px 4px #000000;
+  margin: auto;
 }
 form button {
   padding: 0 1em;
-  font-size: 1em;
-  background: #7bcbc4;
+  font-size: 16px;
+  background: #ff4137;
   border-radius: .2em;
+  font-weight: bold;
+  color: black;
 }
 ul {
   list-style: none;
@@ -59,6 +70,9 @@ ul li {
   border-bottom: solid 2px rgba(88, 183, 205, .2);
   position: relative;
 }
+form button:hover {
+  background:#ff0900;
+}
 button {
   cursor: pointer;
 }
@@ -68,21 +82,22 @@ button {
   outline: none;
 }
 header {
-  text-align: center;
-  background: linear-gradient(90deg, #d4eece, #55b3d0, #1e7eb7),
-              url('../images/header-bg.jpg') no-repeat;
-              background-blend-mode: multiply;    
-              background-size: cover;   
+  text-align: center; 
+}
+#main-pic {
+  width: 100%;
+  height: auto;
+  position: relative;
 }
 header input {
   padding: 12px;
-  font-size: 1.15em;
+  font-size: 16px;
   width: 100%;
 }
 li span, 
 li input[type=text] {
-  color: #707070;
-  font-size: 1.3em;
+  color: black;
+  font-size: 16px;
   margin-bottom: .3em;
 }
 li input[type=text] {
@@ -91,7 +106,7 @@ li input[type=text] {
   border: 1px dotted rgba(0,0,0, .2);
 }
 li label {
-  font-size: .9em;
+  font-size: 16px;
   display: block;
   color: rgba(112, 112, 112, .55);
 }
@@ -100,7 +115,7 @@ li input[type=text]:first-child {
   display: block;
 }
 li button {
-  font-size: .78em;
+  font-size: 16px;
   margin-top: 1.65em;
   margin-right: .4em;
   border-radius: .3em;
@@ -121,11 +136,11 @@ li button:last-child {
   box-shadow: 0 0 26px rgba(0,0,0, .13);
 }
 div > input:last-child {
-  font-size: 1em;
+  font-size: 16px;
   margin-left: 6px;
 }
 div > label {
-  color: #767676;
+  color: black;
 }
 
 /* responded */
@@ -142,14 +157,7 @@ div > label {
   Media Queries
 ==================================== */
 
-@media (min-width: 0) and (max-width: 768px) {
-  header {
-    padding: 1.25em;
-  }
-  h1 {
-    font-size: 3.6em;
-    margin: .3em 0 0;
-  }
+@media (min-width: 0) and (max-width: 650px) {
   ul li {
     margin-bottom: 1em;
   }
@@ -158,14 +166,13 @@ div > label {
     -webkit-flex-direction: column;
     flex-direction: column;
     margin: auto;
-    margin-top: 2.5em;
   }
   form button {
     padding: 12px 0;
     margin-top: .5em;
   }
   form input {
-    font-size: 1em;
+    font-size: 12px;
     text-align: center;
   }
   .wrapper {
@@ -176,30 +183,33 @@ div > label {
   }
 }
 
-@media (min-width: 769px) {
-  header {
-    height: 280px;
-    padding: 2.5em 1em 1em;  
-    background-position: 0 -95px; 
+@media (min-width: 650px) {
+  h1, h2 {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  h1 {
+    top: 90px;
+  }
+  h2 {
+    top: 165px;
+  }
+  form {
+    margin: 10px auto;
+    top: -80px;
   }
   .main > div {
     float: right;
-    margin-top: 12px;
-    margin-right: 1.25%;
   }
   div > label {
     margin-top: 12px;
   }
-  h1 {
-    font-size: 5.8em;
-  }
-  h2 {
+  h3 {
     float: left;
-    font-size: 1.9em;
     margin-left: 1.25%;
   }
   form {
-    margin: 4.15em auto 0;
     z-index: 3000;
     position: relative;
   }
@@ -207,7 +217,6 @@ div > label {
     width: 90%;
   }
   .main {
-    padding: 3.8em 1.5em .75em;
     position: relative;
     z-index: 10;
   }
